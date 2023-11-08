@@ -1,16 +1,36 @@
-* {
-  box-sizing: border-box;
+.video-container {
+  perspective: 800px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  --rYstart: -80deg;
+  --rYend: -10deg;
 }
 
-body {
-  margin: 0;
-  padding: 1rem;
-  font-family: system-ui, sans-serif;
-  color: black;
-  background-color: white;
+video {
+  width: 100%;
+  height: 100%;
+  
 }
 
-h1 {
-  font-weight: 800;
-  font-size: 1.5rem;
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    transform: perspective(400px) scaleZ(0.6) rotateX(-4.222deg) rotateY(var(--rYstart)) translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) scaleZ(1) rotateX(-4.222deg) rotateY(var(--rYend)) translateX(0);
+  }
+}
+
+@keyframes slideout {
+  0% {
+    opacity: 1;
+    transform: perspective(800px) scaleZ(1) rotateX(-4.222deg)  translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(800px) scaleZ(1) rotateX(-4.222deg)  translateX(-100%);
+  }
 }
